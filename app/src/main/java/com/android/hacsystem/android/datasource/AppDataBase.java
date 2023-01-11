@@ -1,5 +1,6 @@
 package com.android.hacsystem.android.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -7,6 +8,7 @@ import android.util.Log;
 
 import com.android.hacsystem.android.api.ApiUtil;
 import com.android.hacsystem.android.datamodel.ClientesDataModel;
+import com.android.hacsystem.android.datamodel.ProdutosDataModel;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -28,10 +30,19 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         Log.d(ApiUtil.TAG,"comando sql: " + ClientesDataModel.criarTabela());
 
+        db.execSQL(ProdutosDataModel.criarTabela());
+
+        Log.d(ApiUtil.TAG, "comando sql: " + ProdutosDataModel.criarTabela());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    public boolean insert(String TABELA, ContentValues dados){
+        boolean retorno = false;
+
+        return retorno;
     }
 }

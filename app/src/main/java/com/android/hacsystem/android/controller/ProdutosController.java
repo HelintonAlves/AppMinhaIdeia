@@ -3,6 +3,7 @@ package com.android.hacsystem.android.controller;
 import android.content.ContentValues;
 import android.content.Context;
 
+import com.android.hacsystem.android.datamodel.ProdutosDataModel;
 import com.android.hacsystem.android.datasource.AppDataBase;
 import com.android.hacsystem.android.model.Produtos;
 
@@ -25,7 +26,7 @@ public class ProdutosController extends AppDataBase implements ICrud<Produtos> {
         valuesProduto.put("nomeProduto", produto.getNomeProduto());
         valuesProduto.put("fornecedorProduto", produto.getFornecedorProduto());
 
-        return false;
+        return insert(ProdutosDataModel.TABELA, valuesProduto);
     }
 
     @Override

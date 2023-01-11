@@ -29,7 +29,7 @@ public class ClientesController extends AppDataBase implements ICrud<Clientes>{
         values.put(ClientesDataModel.NOME, cliente.getNomeCliente());
         values.put(ClientesDataModel.EMAIL, cliente.getEmailCliente());
 
-        return false;
+        return insert(ClientesDataModel.TABELA, values);
     }
 
     @Override
