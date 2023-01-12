@@ -40,8 +40,17 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     }
 
-    public boolean insert(String TABELA, ContentValues dados){
+    public boolean insert(String tabela, ContentValues dados){
+
+        db = getWritableDatabase();
         boolean retorno = false;
+        try{
+
+            retorno = db.insert(tabela, null, dados) > 0;
+
+        }catch (Exception e){
+            Log.d(ApiUtil.TAG,"insert: " + e.getMessage());
+        }
 
         return retorno;
     }
