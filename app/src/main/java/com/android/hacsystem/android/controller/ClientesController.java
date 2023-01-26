@@ -40,24 +40,19 @@ public class ClientesController extends AppDataBase implements ICrud<Clientes>{
         values.put(ClientesDataModel.NOME, cliente.getNomeCliente());
         values.put(ClientesDataModel.EMAIL, cliente.getEmailCliente());
 
-        return false;
+        return update(ClientesDataModel.TABELA, values);
     }
 
     @Override
-    public boolean delete(Clientes cliente) {
+    public boolean delete(int id) {
 
-        values = new ContentValues();
-        values.put(ClientesDataModel.ID, cliente.getId());
-
-        return false;
+        return deleteById(ClientesDataModel.TABELA, id);
     }
 
     @Override
     public List<Clientes> listar() {
 
-        List<Clientes> listaClientes = new ArrayList<>();
-
-        return listaClientes;
+        return getAllClientes(ClientesDataModel.TABELA);
     }
 
 }

@@ -33,7 +33,7 @@ public class ProdutosController extends AppDataBase implements ICrud<Produtos> {
     public boolean alterar(Produtos produto) {
 
         valuesProduto = new ContentValues();
-        valuesProduto.put("idProduto", produto.getId());
+        valuesProduto.put("id", produto.getId());
         valuesProduto.put("nomeProduto", produto.getNomeProduto());
         valuesProduto.put("fornecedorProduto", produto.getFornecedorProduto());
 
@@ -41,12 +41,9 @@ public class ProdutosController extends AppDataBase implements ICrud<Produtos> {
     }
 
     @Override
-    public boolean delete(Produtos produto) {
+    public boolean delete(int id) {
 
-        valuesProduto = new ContentValues();
-        valuesProduto.put("idProduto", produto.getId());
-
-        return false;
+        return deleteById(ProdutosDataModel.TABELA, id);
     }
 
     @Override
